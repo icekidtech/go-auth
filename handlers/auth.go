@@ -15,6 +15,18 @@ import (
 
 // ---- Signup -----
 
+// Signup godoc
+// @Summary User registration
+// @Description Register a new user account
+// @Tags auth
+// @Accept json
+// @Produce json
+// @Param request body models.SignupRequest true "User signup credentials"
+// @Success 201 {object} models.AuthResponse "User created successfully"
+// @Failure 400 {object} map[string]string "Invalid request"
+// @Failure 409 {object} map[string]string "Email already registered"
+// @Failure 500 {object} map[string]string "Internal server error"
+// @Router /auth/signup [post]
 func Signup(c *fiber.Ctx) error {
 	var body models.SignupRequest
 
@@ -78,6 +90,18 @@ func Signup(c *fiber.Ctx) error {
 
 // ---- Login -----
 
+// Login godoc
+// @Summary User login
+// @Description Authenticate user with email and password
+// @Tags auth
+// @Accept json
+// @Produce json
+// @Param request body models.LoginRequest true "User login credentials"
+// @Success 200 {object} models.AuthResponse "Login successful"
+// @Failure 400 {object} map[string]string "Invalid request"
+// @Failure 401 {object} map[string]string "Invalid credentials"
+// @Failure 500 {object} map[string]string "Internal server error"
+// @Router /auth/login [post]
 func Login(c *fiber.Ctx) error {
 	var body models.LoginRequest
 
@@ -121,6 +145,16 @@ func Login(c *fiber.Ctx) error {
 
 // ---- Me (protected route) -----
 
+// Me godoc
+// @Summary Get current user profile
+// @Description Get the profile of the currently authenticated user
+// @Tags user
+// @Produce json
+// @Security ApiKeyAuth
+// @Success 200 {object} models.User "Current user data"
+// @Failure 401 {object} map[string]string "Unauthorized"
+// @Failure 404 {object} map[string]string "User not found"
+// @Router /user/me [get]
 func Me(c *fiber.Ctx) error {
 	userID := c.Locals("userID").( string)
 
