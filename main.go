@@ -33,7 +33,7 @@ func main() {
 				code = e.Code
 			}
 			return c.Status(code).JSON(fiber.Map{"error": err.Error()})
-		}
+		},
 	})
 
 	app.Use(logger.New())
