@@ -7,10 +7,11 @@
 // @host localhost:3000
 // @BasePath /api
 // @schemes http https
-// @securityDefinitions.apikey ApiKeyAuth
+// @securityDefinitions.apikey BearerAuth
 // @in header
 // @name Authorization
-// @description Type "Bearer" followed by a space and JWT token.
+// @type apiKey
+// @description JWT Bearer token. Enter just the token, Swagger will add "Bearer " prefix
 
 package main
 
