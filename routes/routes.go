@@ -12,8 +12,8 @@ func Setup(app *fiber.App) {
 
 	// Public routes
 	auth := api.Group("/auth")
-	api.Post("/signup", handlers.Signup)
-	api.Post("/login", handlers.Login)
+	auth.Post("/signup", handlers.Signup)
+	auth.Post("/login", handlers.Login)
 
 	// Protected routes
 	user := api.Group("/user", middleware.Protected)
