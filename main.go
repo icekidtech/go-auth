@@ -1,3 +1,17 @@
+// @title Go Auth API
+// @version 1.0.0
+// @description A simple authentication API built with Go Fiber and PostgreSQL
+// @termsOfService http://swagger.io/terms/
+// @contact.name API Support
+// @license.name Apache 2.0
+// @host localhost:3000
+// @BasePath /api
+// @schemes http https
+// @securityDefinitions.apikey ApiKeyAuth
+// @in header
+// @name Authorization
+// @description Type "Bearer" followed by a space and JWT token.
+
 package main
 
 import (
