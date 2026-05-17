@@ -14,7 +14,7 @@ type JWTClaims struct {
 	jwt.RegisteredClaims
 }
 
-func protected(c *fiber.Ctx) error {
+func Protected(c *fiber.Ctx) error {
 	authHeader := c.Get("Authorization")
 	if authHeader == "" {
 		return c.Status(fiber.StatusUnauthorized).JSON(fiber.Map{
