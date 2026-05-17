@@ -5,9 +5,13 @@ import (
 	"go-auth/middleware"
 
 	"github.com/gofiber/fiber/v2"
+	fiberSwagger "github.com/swaggo/fiber-swagger"
 )
 
 func Setup(app *fiber.App) {
+	// Swagger route
+	app.Get("/swagger/*", fiberSwagger.WrapHandler)
+
 	api := app.Group("/api")
 
 	// Public routes
