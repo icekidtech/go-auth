@@ -87,7 +87,7 @@ func Login(c *fiber.Ctx) error {
 		})
 	}
 
-	if body,Email == "" || body.Password == "" {
+	if body.Email == "" || body.Password == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Email and password are required",
 		})
