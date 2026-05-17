@@ -21,6 +21,7 @@ import (
 	"go-auth/config"
 	"go-auth/models"
 	"go-auth/routes"
+	_ "go-auth/docs"
 
 	"github.com/gofiber/fiber/v2"
 	"github.com/gofiber/fiber/v2/middleware/logger"
