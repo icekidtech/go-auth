@@ -16,7 +16,7 @@ import (
 // ---- Signup -----
 
 func Signup(c *fiber.Ctx) error {
-	var body models.SignupRequet
+	var body models.SignupRequest
 
 	if err := c.BodyParser(&body); err != nil {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
@@ -24,13 +24,13 @@ func Signup(c *fiber.Ctx) error {
 		})
 	}
 
-	if body.Name == "" || body.Email == "" || body.password == "" {
+	if body.Name == "" || body.Email == "" || body.Password == "" {
 		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Name, email, and password are required",
 		})
 	}
 	if len(body.Password) < 6 {
-		return c.Status(fiber.StatusBadRequest).Json(fiber.Map{
+		return c.Status(fiber.StatusBadRequest).JSON(fiber.Map{
 			"error": "Password must be at least 6 characters long",
 		})
 	}
